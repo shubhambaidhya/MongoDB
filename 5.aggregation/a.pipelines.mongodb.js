@@ -171,3 +171,31 @@ use("kec-crud");
 //     },
 //   },
 // ]);
+
+// ? skip
+let page = 10;
+let limit = 10;
+let skip = (page - 1) * limit;
+db.movies.aggregate([
+  {
+    $match: {},
+  },
+  {
+    $sort: {
+      id: 1,
+    },
+  },
+  {
+    $skip: skip,
+  },
+  {
+    $limit: limit,
+  },
+  {
+    $project: {
+      _id: 0,
+      name: 1,
+      id: 1,
+    },
+  },
+]);
