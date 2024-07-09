@@ -50,3 +50,6 @@
 //     },
 //   },
 // ]);
+
+// ? find owner of Ford Mustang car
+db.vehicle.find();
